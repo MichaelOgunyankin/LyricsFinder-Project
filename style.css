@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
+
+*{
+    font-family: 'Quicksand', sans-serif;
+}
+
+#div1{
+    text-align: center;
+/*    display:flex */
+
+}
+
+#div2{
+    text-align: center;
+}
+
+input{
+    width: 200px;
+  /*  border-radius: ; */
+}
