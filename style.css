@@ -12,9 +12,27 @@
 
 #div2{
     text-align: center;
+    display: flex;
+    align-items: center;
 }
 
 input{
-    width: 200px;
-  /*  border-radius: ; */
+    
+}
+
+button{
+   
+}
+
+.lyricsText {
+    text-align: center;
+    color: black;
+    font-size: 14px;
+    margin: 20px;
+    
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 70px;
+
+
 }
