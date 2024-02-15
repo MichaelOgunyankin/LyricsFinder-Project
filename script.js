@@ -42,10 +42,22 @@ searchButton.addEventListener('click', async () => {
     // Log the data received from the api
     //console.log(apiData);
 
-    const lyricsText = document.createElement('p');
+    /*const lyricsText = document.createElement('p');
     lyricsText.innerText = JSON.stringify(apiData);
     lyricsText.classList.add('lyricsText');
+    searchResults.append(lyricsText);*/
+
+    /*const lyricsText = document.createElement('pre'); // Use <pre> for preformatted text
+    lyricsText.innerText = JSON.stringify(apiData, null, 2); // Use null for replacer and 2 for indentation
+    lyricsText.classList.add('lyricsText');
+    searchResults.append(lyricsText);*/
+
+    const lyricsText = document.createElement('p');
+    lyricsText.innerHTML = `<code>${hljs.highlight('json', JSON.stringify(apiData, null, 2)).value}</code>`;
+    lyricsText.classList.add('lyricsText');
+    lyricsText.style.color = '#fff'
     searchResults.append(lyricsText);
+
     
 });
 
