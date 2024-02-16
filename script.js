@@ -53,12 +53,10 @@ searchButton.addEventListener('click', async () => {
     searchResults.append(lyricsText);*/
 
     const lyricsText = document.createElement('p');
-    lyricsText.innerHTML = `<code>${hljs.highlight('json', JSON.stringify(apiData, null, 2)).value}</code>`;
+    lyricsText.innerText = apiData.lyrics
     lyricsText.classList.add('lyricsText');
-    lyricsText.style.color = '#fff'
     searchResults.append(lyricsText);
-
-    
+    console.log(apiData)
 });
 
 //console.log(artistInput)

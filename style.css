@@ -4,6 +4,8 @@
 *{
     font-family: 'Quicksand', sans-serif;
     background-color: rgb(52, 52, 64);
+
+   
     
 }
 
@@ -12,6 +14,8 @@ body{
     padding: 0px;
     min-height: 100%;
     position: relative;
+
+    line-height: 1.6;
 }
 .container{
     max-width: 900px;
@@ -42,25 +46,49 @@ input{
     border-bottom: 1px solid rgb(66, 126, 194);;
     height: 30px;
     border-right: none;
-    font-size: 16px;
-   margin-bottom: 40px;
+    font-size: 18px;
+    margin-bottom: 40px;
+    padding: 10px;
+  
 }
 
 button{
-    color: rgb(66, 126, 194);   
+    color: rgb(52, 52, 64);
+    background-color: rgb(66, 126, 194); 
     font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 40px;
+    border-radius: 6px;
+    padding: 15px 8%;
+
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: none;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 button:hover{
-    background-color: rgb(66, 126, 194);
-    color: black;
+    background-color: rgb(52, 52, 64);
+    color: rgb(66, 126, 194);
+
+
+    
 }   
+
+/*::-ms-input-placeholder {
+    color: red;
+  }
+input:hover{
+    background-color: rgb(66, 126, 194);
+    color: rgb(52, 52, 64);
+} */
 
 h1{
     font-family: 'protest riot';
     font-size: 68px;
     margin-bottom: 0px;
     color: rgb(66, 126, 194);
+
+    letter-spacing: 2px;
 
 }
 
@@ -71,10 +99,105 @@ h4{
 
 
 .lyricsText {
-    color: white;       
+    font-size: 18px;
+    color: white;     
+    padding-right: 20px;
+    padding-bottom: 70px;  
 
 }
 
 p{
     color: #fff;
+}
+
+
+/* media queiries*/
+
+@media (max-width: 980px) {
+
+    body {
+        font-size: 16px; /* Further reduce font size for smaller screens */
+    }
+
+    header {
+        margin-bottom: 50px; /* Decrease header margin for more compact layout */
+    }
+
+    input {
+        font-size: 18px; /* Adjust input font size for better visibility */
+        margin-bottom: 20px; /* Reduce margin bottom for input on smaller screens */ ;
+
+        max-width: 90%;
+    }
+
+    button {
+        font-size: 16px; /* Adjust button font size for better visibility */
+        padding: 14px 8%; /* Adjust button padding for better spacing on smaller screens */
+        margin-top: 20px;
+    }
+
+    h1 {
+        font-size: 52px; /* Decrease h1 font size for smaller screens */
+    }
+
+    h4 {
+        margin-bottom: 40px; /* Decrease margin bottom for h4 on smaller screens */
+    }
+
+    .lyricsText {
+        font-size: 14px; /* Adjust lyrics text font size for better readability */
+        padding-right: 10px; /* Reduce right padding for lyrics text on smaller screens */
+        padding-bottom: 40px; /* Reduce bottom padding for lyrics text on smaller screens */
+        max-width: 80%;
+        margin-left: 30px;
+    }
+
+    .div2{
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+}
+@media (max-width: 550px) {
+    body {
+        font-size: 14px; /* Further reduce font size for smaller screens */
+    }
+
+    header {
+        margin-bottom: 40px; /* Decrease header margin for more compact layout */
+    }
+
+    input {
+        font-size: 16px; /* Adjust input font size for better visibility */
+        margin-bottom: 20px; /* Reduce margin bottom for input on smaller screens */ ;
+
+        max-width: 80%;
+    }
+
+    button {
+        font-size: 16px; /* Adjust button font size for better visibility */
+        padding: 12px 8%; /* Adjust button padding for better spacing on smaller screens */
+        margin-top: 20px;
+    }
+
+    h1 {
+        font-size: 42px; /* Decrease h1 font size for smaller screens */
+    }
+
+    h4 {
+        margin-bottom: 40px; /* Decrease margin bottom for h4 on smaller screens */
+    }
+
+    .lyricsText {
+        font-size: 14px; /* Adjust lyrics text font size for better readability */
+        padding-right: 10px; /* Reduce right padding for lyrics text on smaller screens */
+        padding-bottom: 40px; /* Reduce bottom padding for lyrics text on smaller screens */
+        max-width: 80%;
+        margin-left: 30px;
+    }
+
+    .div2{
+        margin-left: 20px;
+        margin-right: 20px;
+    }
 }
