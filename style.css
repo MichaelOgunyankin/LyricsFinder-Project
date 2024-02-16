@@ -5,8 +5,6 @@
     font-family: 'Quicksand', sans-serif;
     background-color: rgb(52, 52, 64);
 
-   
-    
 }
 
 body{
@@ -14,7 +12,6 @@ body{
     padding: 0px;
     min-height: 100%;
     position: relative;
-
     line-height: 1.6;
 }
 .container{
@@ -57,7 +54,7 @@ button{
     background-color: rgb(66, 126, 194); 
     font-weight: bold;
     font-size: 18px;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     border-radius: 6px;
     padding: 15px 8%;
 
@@ -69,9 +66,6 @@ button{
 button:hover{
     background-color: rgb(52, 52, 64);
     color: rgb(66, 126, 194);
-
-
-    
 }   
 
 /*::-ms-input-placeholder {
@@ -87,9 +81,7 @@ h1{
     font-size: 68px;
     margin-bottom: 0px;
     color: rgb(66, 126, 194);
-
     letter-spacing: 2px;
-
 }
 
 h4{
@@ -102,7 +94,7 @@ h4{
     font-size: 18px;
     color: white;     
     padding-right: 20px;
-    padding-bottom: 70px;  
+    padding-bottom: 40px;  
 
 }
 
