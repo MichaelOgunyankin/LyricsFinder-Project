@@ -10,37 +10,72 @@
 
 
     !
-!
-To make the lyrics more readable when displaying them in your HTML document, you can format the JSON string to add line breaks and indentation. One way to achieve this is by using the JSON.stringify method with the third and fourth parameters.
+<!-- Add an error message element in your HTML -->
+<div id="errorMessage" style="color: red;"></div>
 
-Here's an example of how you can modify your code to make the lyrics more readable:
+<!-- JavaScript code -->
+<script>
+    // Add a reference to the error message element
+    const errorMessageElement = document.getElementById('errorMessage');
 
-const lyricsText = document.createElement('p');
+    // Add a click event listener to the clear button
+    clearButton.addEventListener('click', clear);
 
-// Format the JSON string with 2 spaces of indentation
-lyricsText.innerText = JSON.stringify(apiData, null, 2);
+    // Function to clear lyrics
+    function clear() {
+        searchResults.innerHTML = '';
+        errorMessageElement.innerHTML = '';
+        // alert('Lyrics cleared, try another song!');
+    }
 
-lyricsText.classList.add('lyricsText');
-searchResults.append(lyricsText);
-In this example, the JSON.stringify method takes three parameters:
+    // Asynchronous function to fetch the data
+    async function getData(artist, song) {
+        // Define the API endpoint we want to fetch from
+        let apiURL = 'https://api.lyrics.ovh/v1/';
+        // Await the response from the API
+        const response = await fetch(apiURL + artist + "/" + song);
 
-The data to be converted to a JSON string (apiData in your case).
-A replacer function (use null if you don't need it).
-The number of spaces to use for indentation (set to 2 in this example for better readability).
-Adjust the indentation value according to your preference. This will add proper indentation and line breaks to the
+        // Check if the response is successful
+        if (!response.ok) {
+            // Display an error message if the response is not OK
+            errorMessageElement.innerHTML = 'Error fetching lyrics. Please try again.';
+            return null; // Return null to indicate an error
+        }
 
+        // Convert the response to JSON
+        const apiData = await response.json();
 
+        // Check if lyrics are available
+        if (!apiData.lyrics) {
+            // Display an error message if lyrics are undefined
+            errorMessageElement.innerHTML = 'Lyrics not found for the given artist and song.';
+            return null; // Return null to indicate an error
+        }
 
+        // Clear any previous error messages
+        errorMessageElement.innerHTML = '';
 
+        // Return the JSON response
+        return apiData;
+    }
 
+    searchButton.addEventListener('click', async () => {
+        let artist = artistInput.value;
+        let song = songInput.value;
 
+        try {
+            const apiData = await getData(artist, song);
 
-
-
-
-
-const lyricsText = document.createElement('p');
-lyricsText.innerHTML = `<code>${hljs.highlight('json', JSON.stringify(apiData, null, 2)).value}</code>`;
-lyricsText.classList.add('lyricsText');
-searchResults.append(lyricsText);
-
+            if (apiData) {
+                const lyricsText = document.createElement('p');
+                lyricsText.innerText = apiData.lyrics;
+                lyricsText.classList.add('lyricsText');
+                searchResults.innerHTML = ''; // Clear previous lyrics
+                searchResults.append(lyricsText);
+                console.log(apiData);
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    });
+</script>

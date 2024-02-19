@@ -6,10 +6,13 @@ const searchResults = document.getElementById('div3')
 const searchbar = document.getElementById('searchBar')
 //searchButton
 const searchButton = document.getElementById('searchbtn')
+const clearButton = document.getElementById('ClearButton')
 
 //inputs
 const artistInput = document.getElementById('artistInput') 
 const songInput = document.getElementById('songInput')
+
+const lyricsForm = document.getElementById('LyricsForm')
 
 
 
@@ -59,4 +62,9 @@ searchButton.addEventListener('click', async () => {
     console.log(apiData)
 });
 
-//console.log(artistInput)
+    // Function & Button to clear lyrics
+    function clear() {
+        searchResults.innerHTML = '';
+    }
+
+    clearButton.addEventListener('click', clear)
