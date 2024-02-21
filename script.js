@@ -15,7 +15,8 @@ const songInput = document.getElementById('songInput')
 const lyricsForm = document.getElementById('LyricsForm')
 
 
-
+// error message element
+const errorMessageElement = document.getElementById('errorMessage');
 
 
 // Asynchronous function to fetch the data
@@ -42,24 +43,19 @@ searchButton.addEventListener('click', async () => {
     } catch (error) {
         console.log(error);
     }
-    // Log the data received from the api
-    //console.log(apiData);
-
-    /*const lyricsText = document.createElement('p');
-    lyricsText.innerText = JSON.stringify(apiData);
-    lyricsText.classList.add('lyricsText');
-    searchResults.append(lyricsText);*/
-
-    /*const lyricsText = document.createElement('pre'); // Use <pre> for preformatted text
-    lyricsText.innerText = JSON.stringify(apiData, null, 2); // Use null for replacer and 2 for indentation
-    lyricsText.classList.add('lyricsText');
-    searchResults.append(lyricsText);*/
 
     const lyricsText = document.createElement('p');
+
+    if(apiData.lyrics != undefined) {
     lyricsText.innerText = apiData.lyrics
-    lyricsText.classList.add('lyricsText');
+
+}
+    else{
+        lyricsText.innerText = 'Sorry, the song lyrics for this artist and song name cannot be found.'
+    }   lyricsText.classList.add('lyricsText');
     searchResults.append(lyricsText);
     console.log(apiData)
+
 });
 
     // Function & Button to clear lyrics
@@ -68,3 +64,5 @@ searchButton.addEventListener('click', async () => {
     }
 
     clearButton.addEventListener('click', clear)
+
+   
